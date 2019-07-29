@@ -5,16 +5,23 @@
 
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!--  <script> 
+            $(document).ready(function(){ 
+                $("#submitbuttion").click(function(){ 
+                    $("#tabledata").load("/gettabledata"); 
+                }); 
+            }); 
+        </script> --> 
 <title>Insert title here</title>
 </head>
 <body>
+
 
 <script type="text/javascript">
 function getvalue() {
@@ -24,10 +31,10 @@ function getvalue() {
 //		document.getElementById("sample").readOnly = true;
 }
 </script>
-	<form:form>
+	<form:form modelAttribute="stocksearchbean" action="gettabledata">
 			StocksDropDownList:
 		<datalist id="suggestions">
-			<form:select id="stockdropdown" path="Stockname"
+			<form:select id="stockdropdown" path="stockname"
 				onchange="setinputfields()">
 				<c:forEach items="${stocklist}" var="g">
 					<form:option label="${g.stockname}" value="${g.stockname}" />
@@ -37,27 +44,27 @@ function getvalue() {
 		<input autoComplete="on" list="suggestions" />
 		<br>
 StockCode:
-<form:input path="" id="stockcode" type="text" />
+<form:input path="stockcode" id="stockcode" type="text" />
 		<br>
 InstrumentCode:
-<form:input path="" id="instrumentcode" type="text"/>
+<form:input path="instrumentcode" id="instrumentcode" type="text"/>
 		<br>
 		
 <br>
 Candle:
-<form:input path="" id="" value="30mins" readonly="true"/>	
+<form:input path="candle" id="" value="30mins" readonly="true"/>	
 
 <br>
 Strategy:	
 	
-<form:select path="">
+<form:select path="strategy">
 <form:option value="SMA">SimpleMovingAverage</form:option>
 </form:select>	
 
 <br>
 
 ShortDuration :
-<form:select path="">
+<form:select path="shortduration">
 <form:option value="8c">8Candles</form:option>
 <form:option value="20c">20Candles</form:option>
 <form:option value="8D">8Days</form:option>
@@ -66,7 +73,7 @@ ShortDuration :
 
 <br>
 LongDuration :
-<form:select path="">
+<form:select path="longduration">
 <form:option value="8c">8Candles</form:option>
 <form:option value="20c">20Candles</form:option>
 <form:option value="8D">8Days</form:option>
@@ -74,7 +81,7 @@ LongDuration :
 </form:select>	
 
 <br>
-	<input type="submit"  value="SUBMIT">
+	<input type="submit" value ="submit" id="submitbuttion" >
 	</form:form>
 	<br>
 	<br> Sample input :
@@ -85,7 +92,17 @@ LongDuration :
 		<option value="Red">Red</option>
 		<option value="Orange">Orange</option>
 	</select>
-	<script type="text/javascript">
+	
+	
+	<br><br>
+	
+	<table id="tabledata">
+	<tr><th>Data</th></tr>
+	<tr>
+	<td>${command}</td>
+	</tr>
+	</table>
+	<!-- <script type="text/javascript">
 		function setinputfields() {
 			var data = ${stocklist};
 			
@@ -98,7 +115,7 @@ LongDuration :
 				}
 			}
 		}
-	</script>
+	</script> -->
 	<%-- <select>
 		<c:forEach items="${stocklist}" var="g">
 			<option label="${g.stockname}" value="${g.stockname}"/>

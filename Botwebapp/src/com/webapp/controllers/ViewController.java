@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.webapp.dao.TableDao;
 import com.webapp.entities.SMAdata;
-import com.webapp.services.DaoService;
+import com.webapp.services.StockDetailsDaoService;
 
 @Controller
 public class ViewController {
 
-	private DaoService dservice;
+	private StockDetailsDaoService dservice;
 
 	@RequestMapping("/")
 	public String Homepage() {

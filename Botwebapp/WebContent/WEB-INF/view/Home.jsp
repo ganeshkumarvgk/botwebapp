@@ -10,7 +10,7 @@
 
 <a href="stocksearch">BOT</a>
 <br>
-<a href="table">Strategies</a>
+<a href="strategysearch">Strategies</a>
 
 </body>
 </html>

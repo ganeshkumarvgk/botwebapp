@@ -1,5 +1,8 @@
 package com.webapp.entities;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StockDetails {
 
 	private String  stockname;
