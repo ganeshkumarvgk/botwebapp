@@ -37,10 +37,16 @@
 	</bean>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/botdata?useSSL=false"/>
-        <property name="username" value="dbuser" />
-        <property name="password" value="Barcelona!1"/>
+<!--         <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!--         <property name="url" value="jdbc:mysql://localhost:3306/botdata?useSSL=false"/> -->
+<!--         <property name="username" value="dbuser" /> -->
+<!--         <property name="password" value="Barcelona!1"/> -->
+        
+        
+          <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="url" value="jdbc:oracle:thin:@sla15862.agcs.allianz:1521:AGCORAD"/>
+        <property name="username" value="locationmgmt" />
+        <property name="password" value="locationmgmt"/>
       
     </bean>
     
